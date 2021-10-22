@@ -19,6 +19,12 @@ namespace faroshuffle
             {
                 Console.WriteLine(card);
             }
+
+            // 52枚のカードデッキを26枚ずつ分ける
+            var top = startingDeck.Take(26);
+            // Take は指定された数の要素を返す
+            var bottom = startingDeck.Skip(26);
+            // Skip は指定された数の要素をバイパスした残りの要素を返す
         }
         static IEnumerable<string> Suits()
         {
