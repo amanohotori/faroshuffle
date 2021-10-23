@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace faroshuffle
+namespace Linqfaroshuffle
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             var startingDeck = from s in Suits()
                                from r in Ranks()
@@ -15,9 +15,9 @@ namespace faroshuffle
             // var startingDeck = Suits().SelectMany(suit => Ranks().Select(rank => new { Suit = suit, Rank = rank }));
 
             // 生成したstartingDeckに配置される各カードをコンソールに表示します
-            foreach (var card in startingDeck)
+            foreach (var c in startingDeck)
             {
-                Console.WriteLine(card);
+                Console.WriteLine(c);
             }
 
             // 52枚のカードデッキを26枚ずつ分ける
@@ -25,8 +25,16 @@ namespace faroshuffle
             // Take は指定された数の要素を返す
             var bottom = startingDeck.Skip(26);
             // Skip は指定された数の要素をバイパスした残りの要素を返す
+            var shuffle = top.InterleaveSequenceWith(bottom);
+
+            foreach (var c in shuffle)
+            {
+                Console.WriteLine(c);
+            }
         }
         static IEnumerable<string> Suits()
+        // ※IEnumerableとはInterface Enumerable、直訳すると数えられるインターフェース、つまりは『列挙型インターフェース』のことらしい。returnひとつで実行を終了しないで、yield return でリターンをいくつも受け取るメソッドの宣言らしい。
+        // ※ちなみに読みは『アイ イニューメラブル』
         {
             yield return "clubs";
             yield return "diamonds";
