@@ -8,11 +8,13 @@ namespace faroshuffle
     {
         static void Main(string[] args)
         {
-            var startingDeck = from s in Suits()
-                               from r in Ranks()
-                               select new { Suit = s, Rank = r };
+//            var startingDeck = from s in Suits()
+//                               from r in Ranks()
+//                               select new { Suit = s, Rank = r };
             // 上の3行（1行）をクエリ構文というらしくて、これは次のメソッド構文とまったく同じ意味（コンパイラで次のように変換される）らしい。
             // var startingDeck = Suits().SelectMany(suit => Ranks().Select(rank => new { Suit = suit, Rank = rank }));
+            // ので、上のクリエ構文をコメントアウトしてメソッド構文に置き換えてみるブランチを作ってみる
+            var startingDeck = Suits().SelectMany(suit => Ranks().Select(rank => new { Suit = suit, Rank = rank }));
 
             // 生成したstartingDeckに配置される各カードをコンソールに表示します
             foreach (var card in startingDeck)
