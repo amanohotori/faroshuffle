@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Linqfaroshuffle
+namespace LinqFaroShuffle
 {
     class Program
     {
