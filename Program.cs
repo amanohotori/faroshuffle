@@ -14,13 +14,14 @@ namespace LinqFaroShuffle
             // 上の3行（1行）をクエリ構文というらしくて、これは次のメソッド構文とまったく同じ意味（コンパイラで次のように変換される）らしい。
             // var startingDeck = Suits().SelectMany(suit => Ranks().Select(rank => new { Suit = suit, Rank = rank }));
 
-            // 生成したstartingDeckに配置される各カードをコンソールに表示します
+            // 生成したstartingDeckに配置される各カードをコンソールに表示する
             foreach (var c in startingDeck)
             {
                 Console.WriteLine(c);
             }
 
             // 52枚のカードデッキを26枚ずつ分ける
+            
             var top = startingDeck.Take(26);
             // Take は指定された数の要素を返す
             var bottom = startingDeck.Skip(26);
@@ -31,6 +32,8 @@ namespace LinqFaroShuffle
             {
                 Console.WriteLine(c);
             }
+
+
         }
         static IEnumerable<string> Suits()
         // ※IEnumerableとはInterface Enumerable、直訳すると数えられるインターフェース、つまりは『列挙型インターフェース』のことらしい。returnひとつで実行を終了しないで、yield return でリターンをいくつも受け取るメソッドの宣言らしい。
