@@ -33,7 +33,26 @@ namespace LinqFaroShuffle
             {
                 Console.WriteLine(c);
             }
+
+
+            var times = 0;
+            // 回数を数える変数を0で初期化
+            shuffle = startingDeck;
+            do
+            {
+                shuffle = shuffle.Take(26).InterleaveSequenceWith(shuffle.Skip(26));
+
+                foreach (var card in shuffle)
+                {
+                    Console.WriteLine(card);
+                }
+                Console.WriteLine();
+                times++;
+            } while (!startingDeck.SequenceEquals(shuffle));
+
+            Console.WriteLine(times);
         }
+
         static IEnumerable<string> Suits()
         // ※IEnumerableとはInterface Enumerable、直訳すると数えられるインターフェース、つまりは『列挙型インターフェース』のことらしい。returnひとつで実行を終了しないで、yield return でリターンをいくつも受け取るメソッドの宣言らしい。
         // ※読みは『アイ イニューメラブル』
