@@ -27,17 +27,16 @@ namespace LinqFaroShuffle
             var bottom = startingDeck.Skip(26);
             // Skip は指定された数の要素をバイパスした残りの要素を返す
             var shuffle = top.InterleaveSequenceWith(bottom);
+            // 親クラスのように第1引数 top. から InterleaveSequenceWith が呼び出されて、第2引数が普通に引数に入っているのか、まったく理解できない。ツイッターで識者に尋ねてみたが、どうやらこれは拡張メソッドというものの、独特の呼び出し方らしい。どうしてこういう構文なのかは結局わからない。けど動いている。要するに構文のシンタクスシュガーらしいが、誰が得するんだよこれは
 
             foreach (var c in shuffle)
             {
                 Console.WriteLine(c);
             }
-
-
         }
         static IEnumerable<string> Suits()
         // ※IEnumerableとはInterface Enumerable、直訳すると数えられるインターフェース、つまりは『列挙型インターフェース』のことらしい。returnひとつで実行を終了しないで、yield return でリターンをいくつも受け取るメソッドの宣言らしい。
-        // ※ちなみに読みは『アイ イニューメラブル』
+        // ※読みは『アイ イニューメラブル』
         {
             yield return "clubs";
             yield return "diamonds";
