@@ -8,9 +8,11 @@ namespace LinqFaroShuffle
     {
         public static void Main(string[] args)
         {
-            var startingDeck = from s in Suits()
-                               from r in Ranks()
-                               select new { Suit = s, Rank = r };
+            var startingDeck = (from s in Suits().LogQuery("Suit Geeneration")
+                                from r in Ranks().LogQuery("Rank Geeneration")
+                                select new { Suit = s, Rank = r })
+                                .LogQuery("Starting Deck")
+                                .ToArray();
             // 上の3行（1行）をクエリ構文というらしくて、これは次のメソッド構文とまったく同じ意味（コンパイラで次のように変換される）らしい。
             // var startingDeck = Suits().SelectMany(suit => Ranks().Select(rank => new { Suit = suit, Rank = rank }));
 
@@ -47,7 +49,23 @@ namespace LinqFaroShuffle
             shuffle = startingDeck;
             do
             {
-                shuffle = shuffle.Skip(26).InterleaveSequenceWith(shuffle.Take(26));
+                /*
+                // Out shuffle
+                shuffle = shuffle.Take(26)
+                    .LogQuery("Top Half")
+                    .InterleaveSequenceWith(shuffle.Skip(26)
+                    .LogQuery("Bottom Half"))
+                    .LogQuery("Shuffle")
+                    .ToArray();
+                */
+
+                // In shuffle
+                shuffle = shuffle.Skip(26)
+                    .LogQuery("Bottom Half")
+                    .InterleaveSequenceWith(shuffle.Take(26)
+                    .LogQuery("Top Half"))
+                    .LogQuery("Shuffle")
+                    .ToArray();
 
                 Console.WriteLine($"Start Output {times + 1} times FaroshuffledDeck"); // debugtest
                 foreach (var card in shuffle)
