@@ -14,11 +14,15 @@ namespace LinqFaroShuffle
             // 上の3行（1行）をクエリ構文というらしくて、これは次のメソッド構文とまったく同じ意味（コンパイラで次のように変換される）らしい。
             // var startingDeck = Suits().SelectMany(suit => Ranks().Select(rank => new { Suit = suit, Rank = rank }));
 
+            Console.WriteLine("Start Output startingDeck"); // debugtest
+
             // 生成したstartingDeckに配置される各カードをコンソールに表示する
             foreach (var c in startingDeck)
             {
                 Console.WriteLine(c);
             }
+            Console.WriteLine("End Output stertingDeck"); // debugtest
+            Console.WriteLine(); // debugtest
 
             // 52枚のカードデッキを26枚ずつ分ける
             
@@ -29,11 +33,14 @@ namespace LinqFaroShuffle
             var shuffle = top.InterleaveSequenceWith(bottom);
             // 親クラスのように第1引数 top. から InterleaveSequenceWith が呼び出されて、第2引数が普通に引数に入っているのか、まったく理解できない。ツイッターで識者に尋ねてみたが、どうやらこれは拡張メソッドというものの、独特の呼び出し方らしい。どうしてこういう構文なのかは結局わからない。けど動いている。要するに構文のシンタクスシュガーらしいが、誰が得するんだよこれは
 
+            Console.WriteLine("Start Output FaroshuffledDeck"); // debugtest
+
             foreach (var c in shuffle)
             {
                 Console.WriteLine(c);
             }
-
+            Console.WriteLine("End Output FaroshuffledDeck"); // debugtest
+            Console.WriteLine(); // debugtest
 
             var times = 0;
             // 回数を数える変数を0で初期化
@@ -42,15 +49,17 @@ namespace LinqFaroShuffle
             {
                 shuffle = shuffle.Take(26).InterleaveSequenceWith(shuffle.Skip(26));
 
+                Console.WriteLine($"Start Output {times + 1} times FaroshuffledDeck"); // debugtest
                 foreach (var card in shuffle)
                 {
                     Console.WriteLine(card);
                 }
-                Console.WriteLine();
                 times++;
+                Console.WriteLine($"End Output {times} times FaroshuffledDeck"); // debugtest
+                Console.WriteLine();
             } while (!startingDeck.SequenceEquals(shuffle));
 
-            Console.WriteLine(times);
+            Console.WriteLine($"元通りになるのに {times} times かかりました");
         }
 
         static IEnumerable<string> Suits()
