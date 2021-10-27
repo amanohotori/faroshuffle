@@ -1,0 +1,16 @@
+C:\proot\project\_SelfLearning\LearningCSharp\faroshuffle\bin\Debug\net5.0\faroshuffle.exe
+C:\proot\project\_SelfLearning\LearningCSharp\faroshuffle\bin\Debug\net5.0\faroshuffle.deps.json
+C:\proot\project\_SelfLearning\LearningCSharp\faroshuffle\bin\Debug\net5.0\faroshuffle.runtimeconfig.json
+C:\proot\project\_SelfLearning\LearningCSharp\faroshuffle\bin\Debug\net5.0\faroshuffle.runtimeconfig.dev.json
+C:\proot\project\_SelfLearning\LearningCSharp\faroshuffle\bin\Debug\net5.0\faroshuffle.dll
+C:\proot\project\_SelfLearning\LearningCSharp\faroshuffle\bin\Debug\net5.0\ref\faroshuffle.dll
+C:\proot\project\_SelfLearning\LearningCSharp\faroshuffle\bin\Debug\net5.0\faroshuffle.pdb
+C:\proot\project\_SelfLearning\LearningCSharp\faroshuffle\obj\Debug\net5.0\faroshuffle.csproj.AssemblyReference.cache
+C:\proot\project\_SelfLearning\LearningCSharp\faroshuffle\obj\Debug\net5.0\faroshuffle.GeneratedMSBuildEditorConfig.editorconfig
+C:\proot\project\_SelfLearning\LearningCSharp\faroshuffle\obj\Debug\net5.0\faroshuffle.AssemblyInfoInputs.cache
+C:\proot\project\_SelfLearning\LearningCSharp\faroshuffle\obj\Debug\net5.0\faroshuffle.AssemblyInfo.cs
+C:\proot\project\_SelfLearning\LearningCSharp\faroshuffle\obj\Debug\net5.0\faroshuffle.csproj.CoreCompileInputs.cache
+C:\proot\project\_SelfLearning\LearningCSharp\faroshuffle\obj\Debug\net5.0\faroshuffle.dll
+C:\proot\project\_SelfLearning\LearningCSharp\faroshuffle\obj\Debug\net5.0\ref\faroshuffle.dll
+C:\proot\project\_SelfLearning\LearningCSharp\faroshuffle\obj\Debug\net5.0\faroshuffle.pdb
+C:\proot\project\_SelfLearning\LearningCSharp\faroshuffle\obj\Debug\net5.0\faroshuffle.genruntimeconfig.cache
