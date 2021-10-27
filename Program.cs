@@ -47,7 +47,7 @@ namespace LinqFaroShuffle
             shuffle = startingDeck;
             do
             {
-                shuffle = shuffle.Take(26).InterleaveSequenceWith(shuffle.Skip(26));
+                shuffle = shuffle.Skip(26).InterleaveSequenceWith(shuffle.Take(26));
 
                 Console.WriteLine($"Start Output {times + 1} times FaroshuffledDeck"); // debugtest
                 foreach (var card in shuffle)
