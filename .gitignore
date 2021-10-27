@@ -1,6 +1,6 @@
-/.vscode
-/bin
-/ovj
+.vscode
+bin
+ovj
 faroshuffle.csproj
 taihi.txt
 .gitignore
